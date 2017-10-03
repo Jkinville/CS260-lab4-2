@@ -101,8 +101,6 @@ vector<Bid> loadBids(string csvPath) {
             bid.fund = file[i][8];
             bid.amount = strToDouble(file[i][4], '$');
 
-            //cout << "Item: " << bid.title << ", Fund: " << bid.fund << ", Amount: " << bid.amount << endl;
-
             // push this bid to the end
             bids.push_back(bid);
         }
@@ -129,7 +127,6 @@ int partition(vector<Bid>& bids, int begin, int end) {
 	bool done = false;
 
 	while(!done){
-		cout << "test";
 		while(bids.at(x).title.compare(pivot.title) == -1){
 			++x;
 		}
@@ -227,7 +224,7 @@ int main(int argc, char* argv[]) {
         csvPath = argv[1];
         break;
     default:
-        csvPath = "C:\\Users\\John\\Downloads\\lab4-2\\eBid_Monthly_Sales_Dec_2016.csv";
+        csvPath = "C:\\Users\\John\\Downloads\\lab4-2\\eBid_Monthly_Sales.csv";
     }
 
     // Define a vector to hold all the bids
@@ -279,12 +276,17 @@ int main(int argc, char* argv[]) {
         	ticks = clock();
         	selectionSort(bids);
         	ticks = clock() - ticks;
-        	cout << bids.size() << " bids read\n" << "time: " << ticks << " clock ticks\ntime: " << ticks/ 10000 << endl;
+
+        	cout << bids.size() << " bids read\n" << "time: " << ticks << " clock ticks\ntime: " << ticks * 1.0 / CLOCKS_PER_SEC << endl;
         	break;
 
         // FIXME (2b): Invoke the quick sort and report timing results
         case 4:
+        	ticks = clock();
         	quickSort(bids, 0, bids.size() - 1);
+        	ticks = clock() - ticks;
+
+        	cout << bids.size() << " bids read\n" << "time: " << ticks << " clock ticks\ntime: " << ticks * 1.0 / CLOCKS_PER_SEC << endl;
         	break;
 
         }
