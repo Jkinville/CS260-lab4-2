@@ -74,6 +74,7 @@ Bid getBid() {
 
     return bid;
 }
+//comment
 
 /**
  * Load a CSV file containing bids into a container
@@ -224,7 +225,7 @@ int main(int argc, char* argv[]) {
         csvPath = argv[1];
         break;
     default:
-        csvPath = "C:\\Users\\John\\Downloads\\lab4-2\\eBid_Monthly_Sales.csv";
+        csvPath = "eBid_Monthly_Sales.csv";
     }
 
     // Define a vector to hold all the bids
